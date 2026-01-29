@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Nexus Dashboard</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <nav>
+        <button onclick="showSection('home')">Home</button>
+        <button onclick="showSection('notes')">Notes</button>
+        <button onclick="showSection('events')">Events</button>
+        <button onclick="showSection('goals')">Goals</button>
+        <button onclick="showSection('tasks')">Tasks</button>
+        <button onclick="showSection('birthdays')">Birthdays</button>
+        <button onclick="showSection('projects')">Projects</button>
+    </nav>
+
+    <div class="search-bar">
+        <input id="searchInput" type="text" placeholder="Search..." onkeypress="searchItems(event)">
+    </div>
+</header>
+
+<main>{% block content %}{% endblock %}</main>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

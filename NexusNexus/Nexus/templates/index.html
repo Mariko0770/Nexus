@@ -1,0 +1,138 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<section id="home" class="card-section">
+<h2>Home</h2>
+
+<h3>Notes</h3>
+<ul>
+{% for note in notes %}
+<li>{{ note.title }}: {{ note.content }}</li>
+{% endfor %}
+</ul>
+
+<h3>Events</h3>
+<ul>
+{% for e in events %}
+<li>{{ e.name }} - {{ e.event_date }} ({{ e.category }})</li>
+{% endfor %}
+</ul>
+
+<h3>Goals</h3>
+<ul>
+{% for g in goals %}
+<li>{{ g.title }} ({{ g.start_date }} → {{ g.target_date }})</li>
+{% endfor %}
+</ul>
+
+<h3>Tasks</h3>
+<ul>
+{% for t in tasks %}
+<li>{{ t.description }} (Goal: {{ t.goal_id }}, Due: {{ t.due_date }})</li>
+{% endfor %}
+</ul>
+
+<h3>Birthdays</h3>
+<ul>
+{% for b in birthdays %}
+<li>{{ b.name }} ({{ b.birth_date }}) - {{ b.relation }}</li>
+{% endfor %}
+</ul>
+
+<h3>Projects</h3>
+<ul>
+{% for p in projects %}
+<li>{{ p.name }} ({{ p.project_date }})</li>
+{% endfor %}
+</ul>
+</section>
+
+<section id="notes" class="card-section">
+<h2>Notes</h2>
+<form onsubmit="submitForm(event,'notes','/add_note')">
+<input type="text" name="title" placeholder="Title" required>
+<input type="text" name="content" placeholder="Content">
+<button type="submit">Add Note</button>
+</form>
+<ul>
+{% for note in notes %}
+<li>{{ note.title }}: {{ note.content }} <button onclick="deleteItem('notes',{{ note.id }})">×</button></li>
+{% endfor %}
+</ul>
+</section>
+
+<section id="events" class="card-section">
+<h2>Events</h2>
+<form onsubmit="submitForm(event,'events','/add_event')">
+<input type="text" name="name" placeholder="Event Name" required>
+<input type="text" name="event_date" placeholder="DD/MM/YYYY">
+<input type="text" name="category" placeholder="Category">
+<button type="submit">Add Event</button>
+</form>
+<ul>
+{% for e in events %}
+<li>{{ e.name }} - {{ e.event_date }} ({{ e.category }}) <button onclick="deleteItem('events',{{ e.id }})">×</button></li>
+{% endfor %}
+</ul>
+</section>
+
+<section id="goals" class="card-section">
+<h2>Goals</h2>
+<form onsubmit="submitForm(event,'goals','/add_goal')">
+<input type="text" name="title" placeholder="Goal Title" required>
+<input type="text" name="start" placeholder="Start Date">
+<input type="text" name="target" placeholder="Target Date">
+<button type="submit">Add Goal</button>
+</form>
+<ul>
+{% for g in goals %}
+<li>{{ g.title }} ({{ g.start_date }} → {{ g.target_date }}) <button onclick="deleteItem('goals',{{ g.id }})">×</button></li>
+{% endfor %}
+</ul>
+</section>
+
+<section id="tasks" class="card-section">
+<h2>Tasks</h2>
+<form onsubmit="submitForm(event,'tasks','/add_task')">
+<input type="text" name="description" placeholder="Task Description" required>
+<input type="text" name="goal_id" placeholder="Goal ID">
+<input type="text" name="due_date" placeholder="Due Date">
+<button type="submit">Add Task</button>
+</form>
+<ul>
+{% for t in tasks %}
+<li>{{ t.description }} (Goal: {{ t.goal_id }}, Due: {{ t.due_date }}) <button onclick="deleteItem('tasks',{{ t.id }})">×</button></li>
+{% endfor %}
+</ul>
+</section>
+
+<section id="birthdays" class="card-section">
+<h2>Birthdays</h2>
+<form onsubmit="submitForm(event,'birthdays','/add_birthday')">
+<input type="text" name="name" placeholder="Name" required>
+<input type="text" name="birth_date" placeholder="DD/MM/YYYY">
+<input type="text" name="relation" placeholder="Relation">
+<button type="submit">Add Birthday</button>
+</form>
+<ul>
+{% for b in birthdays %}
+<li>{{ b.name }} ({{ b.birth_date }}) - {{ b.relation }} <button onclick="deleteItem('birthdays',{{ b.id }})">×</button></li>
+{% endfor %}
+</ul>
+</section>
+
+<section id="projects" class="card-section">
+<h2>Projects</h2>
+<form onsubmit="submitForm(event,'projects','/add_project')">
+<input type="text" name="name" placeholder="Project Name" required>
+<input type="text" name="project_date" placeholder="DD/MM/YYYY">
+<button type="submit">Add Project</button>
+</form>
+<ul>
+{% for p in projects %}
+<li>{{ p.name }} ({{ p.project_date }}) <button onclick="deleteItem('projects',{{ p.id }})">×</button></li>
+{% endfor %}
+</ul>
+</section>
+
+{% endblock %}

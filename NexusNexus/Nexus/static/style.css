@@ -1,0 +1,131 @@
+body {
+    background:black;
+    color:#ff69b4;
+    font-family:Arial,sans-serif;
+    margin:0;
+    padding:20px;
+}
+
+header {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    border-bottom:2px solid #ff69b4;
+    padding:10px;
+    position:sticky;
+    top:0;
+    background:#000;
+    z-index:1000;
+}
+
+header nav {
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:10px;
+}
+
+header nav button {
+    background:#000;
+    color:#ff69b4;
+    border:1px solid #ff69b4;
+    padding:5px 10px;
+    border-radius:5px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.2s;
+}
+
+header nav button:hover {
+    background:#ff69b4;
+    color:black;
+    box-shadow:0 0 10px #ff69b4,0 0 20px #ff69b4;
+}
+
+.search-bar input {
+    width:300px;
+    padding:5px 10px;
+    border-radius:5px;
+    border:1px solid #ff69b4;
+    background:#000;
+    color:#ff69b4;
+}
+
+.card-section {
+    margin-bottom:30px;
+}
+
+.card-section form {
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    background:#111;
+    padding:15px;
+    border:1px solid #ff69b4;
+    border-radius:10px;
+    box-shadow:0 0 5px #ff69b4;
+}
+
+.card-section form input,
+.card-section form select {
+    flex:1;
+    padding:8px;
+    background:#000;
+    color:#ff69b4;
+    border:1px solid #ff69b4;
+    border-radius:5px;
+}
+
+.card-section form button {
+    padding:6px 15px;
+    background:#ff69b4;
+    color:black;
+    border:none;
+    cursor:pointer;
+    font-weight:bold;
+    border-radius:5px;
+    box-shadow:0 0 5px #ff69b4,0 0 15px #ff69b4;
+    transition:0.2s;
+}
+
+.card-section form button:hover {
+    box-shadow:0 0 20px #ff69b4,0 0 30px #ff69b4;
+}
+
+.card-section ul {
+    list-style:none;
+    padding-left:0;
+    margin-top:10px;
+}
+
+.card-section ul li {
+    background:#111;
+    padding:8px;
+    margin:5px 0;
+    border:1px solid #ff69b4;
+    border-radius:5px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    transition:0.2s;
+}
+
+.card-section ul li:hover {
+    box-shadow:0 0 10px #ff69b4;
+}
+
+.card-section ul li button {
+    background:#000;
+    color:#ff69b4;
+    border:none;
+    font-weight:bold;
+    font-size:16px;
+    cursor:pointer;
+    border-radius:3px;
+    padding:2px 6px;
+}
+
+.card-section ul li button:hover {
+    background:#ff1493;
+    color:#fff;
+}
